@@ -21,6 +21,7 @@ A modern, responsive personal developer portfolio built with React and Vite.
 ## Run Locally
 
 npm install
+
 npm run dev
 
 ## Build
