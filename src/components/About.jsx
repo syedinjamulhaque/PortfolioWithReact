@@ -48,10 +48,18 @@ export default function About() {
             </p>
           </div>
 
-          <div ref={statsRef} className="grid grid-cols-2 gap-5 reveal">
+          <div
+            ref={statsRef}
+            className="grid grid-cols-2 gap-4 sm:gap-5 reveal w-full min-w-0"
+          >
             {stats.map((stat) => (
-              <div key={stat.label} className="stat-card">
-                <div className="stat-number">{stat.label}</div>
+              <div
+                key={stat.label}
+                className="stat-card min-w-0 w-full overflow-hidden"
+              >
+                <div className="stat-number min-w-0 max-w-full break-words text-center leading-tight">
+                  {stat.label}
+                </div>
               </div>
             ))}
           </div>

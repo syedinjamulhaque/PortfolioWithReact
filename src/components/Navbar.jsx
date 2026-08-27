@@ -37,9 +37,8 @@ export default function Navbar() {
   return (
     <header
       id="navbar"
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        scrolled ? "scrolled" : ""
-      }`}
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled ? "scrolled" : ""
+        }`}
     >
       <nav className="max-w-6xl mx-auto px-6 py-5 flex items-center justify-between">
         <a href="#home" className="text-2xl font-extrabold tracking-tight">
@@ -51,9 +50,8 @@ export default function Navbar() {
             <a
               key={item.href}
               href={item.href}
-              className={`nav-link ${
-                activeSection === item.href.replace("#", "") ? "active-link" : ""
-              }`}
+              className={`nav-link ${activeSection === item.href.replace("#", "") ? "active-link" : ""
+                }`}
             >
               {item.label}
             </a>
@@ -76,22 +74,25 @@ export default function Navbar() {
         </button>
       </nav>
 
-      {menuOpen && (
-        <div className="md:hidden border-t border-white/10 bg-black/95">
-          <div className="px-6 py-6 flex flex-col gap-5">
-            {navItems.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                onClick={() => setMenuOpen(false)}
-                className="mobile-link"
-              >
-                {item.label}
-              </a>
-            ))}
-          </div>
+      <div
+        className={`md:hidden border-t border-white/10 bg-black/95 overflow-hidden transition-all duration-300 ease-in-out ${menuOpen
+            ? "max-h-96 opacity-100 translate-y-0"
+            : "max-h-0 opacity-0 -translate-y-2"
+          }`}
+      >
+        <div className="px-6 py-6 flex flex-col gap-5">
+          {navItems.map((item) => (
+            <a
+              key={item.href}
+              href={item.href}
+              onClick={() => setMenuOpen(false)}
+              className="mobile-link"
+            >
+              {item.label}
+            </a>
+          ))}
         </div>
-      )}
+      </div>
     </header>
   );
 }
